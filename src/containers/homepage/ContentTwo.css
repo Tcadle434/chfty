@@ -1,0 +1,23 @@
+.parent {
+    position: relative;
+    width: 100%;
+  }
+  .one, .two {
+    position: absolute;
+    height: 300px;
+    width: 65%;
+  }
+  .one {
+    left: 0;
+    top: 0;
+    background-image: url(http://via.placeholder.com/350x150/ffcc99);
+    -webkit-clip-path: polygon(0 0, 100% 0%, 50% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0%, 50% 100%, 0% 100%); 
+  }
+  .two {
+    right: 0;
+    top: 0;
+    background-image: url(http://via.placeholder.com/350x150/fc9fc9);
+    -webkit-clip-path: polygon(50% 0, 100% 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(50% 0, 100% 0%, 100% 100%, 0% 100%); 
+  }

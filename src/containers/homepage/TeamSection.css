@@ -1,0 +1,97 @@
+.container {
+    position: relative;
+    width: 50%;
+  }
+  
+  .image {
+    display: block;
+    width: 100%;
+    height: auto;
+    
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 25em;
+    width: 25em;
+    margin: 40px;
+    opacity: 0;
+    transition: .5s ease;
+    background: #000000;
+    border-radius: 20px;
+  }
+
+  @media screen and (min-width:480px) and (max-width: 900px) {
+    .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 40px;
+        right: 0;
+        height: 25em;
+        width: 25em;
+        margin: 0;
+        opacity: 0;
+        transition: .5s ease;
+        background: #000000;
+        border-radius: 20px;
+      }
+
+}
+
+  @media screen and (max-width: 480px) {
+    .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 40px;
+        right: 0;
+        height: 20em;
+        width: 20em;
+        margin: 0;
+        opacity: 0;
+        transition: .5s ease;
+        background: #000000;
+        border-radius: 20px;
+      }
+
+}
+  
+  .container:hover .overlay {
+    opacity: 0.88;
+}
+  
+  .text {
+    color: white;
+    font-size: 20px;
+    font-family: ZenKurenaido-Regular;
+    width:100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  @media screen and (max-width: 480px) {
+    .text {
+        color: white;
+        font-size: 16px;
+        font-family: ZenKurenaido-Regular;
+        width:100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+}
