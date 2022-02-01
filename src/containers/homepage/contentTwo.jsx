@@ -4,7 +4,6 @@ import { ContentComponent } from "../../components/contentComponent";
 import Fade from 'react-reveal/Fade';
 import BigGreenImg from '../../assets/big-green.png';
 import TomBanner from '../../assets/tom-temp.jpeg';
-import './ContentTwo.css';
 
 const ContentContainer = styled.div`
   width: 100%;
@@ -70,11 +69,6 @@ export function ContentTwo(props) {
             />
             </Fade>
         </ComponentContainer>
-        
-        <div class="parent">
-  <div class="one"></div>
-  <div class="two"></div>
-</div>
         </ContentContainer>
     );
   }
