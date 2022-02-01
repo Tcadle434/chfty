@@ -102,7 +102,7 @@ export function RoadmapSection(props) {
             </Bounce>
 
             <Fade>
-            <BeyondText>And Beyond... The CHFTY brand is continuing to expand and add new top tier chefs to our team. The future utilities following that are endless and CHFTY Pizza holders have priority access to it all </BeyondText>
+            <BeyondText>And Beyond... The CHFTY brand is continuing to expand and add new top tier chefs to our team. The future utilities are endless and CHFTY Pizza holders have priority access to it all </BeyondText>
             </Fade>
         </RoadmapContainer>
     );
