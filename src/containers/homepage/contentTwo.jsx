@@ -54,6 +54,11 @@ const SubTitle = styled.h2`
 const Banner = styled.img`
     width: 75%;
 
+    @media screen and (max-width: 480px) {
+        font-size: 20px;
+        width: 100%;
+
+    }
 `;
 
 export function ContentTwo(props) {
