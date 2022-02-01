@@ -69,6 +69,8 @@ export function ContentTwo(props) {
             />
             </Fade>
         </ComponentContainer>
+
+        <Banner src={TomBanner} />
         </ContentContainer>
     );
   }
