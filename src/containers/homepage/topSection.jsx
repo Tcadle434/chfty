@@ -1,10 +1,9 @@
-
-   
 import React from "react";
 import styled from "styled-components";
 import { Navbar } from "../../components/navbar";
 import Fade from 'react-reveal/Fade';
-import BackgroundImg from '../../assets/background.png'
+import BackgroundImg from '../../assets/background-min.png'
+
 
 const TopContainer = styled.div`
   width: 100%;
