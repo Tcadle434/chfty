@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { ContentComponent } from "../../components/contentComponent";
 import Fade from 'react-reveal/Fade';
 import BigGreenImg from '../../assets/big-green.png';
-import TomBanner from '../../assets/tom-temp.jpeg';
+import TomSpikeImg from '../../assets/spike-tom.jpg';
 
 const ContentContainer = styled.div`
   width: 100%;
@@ -75,7 +75,7 @@ export function ContentTwo(props) {
             </Fade>
         </ComponentContainer>
 
-        <Banner src={TomBanner} />
+        <Banner src={TomSpikeImg} />
         </ContentContainer>
     );
   }
