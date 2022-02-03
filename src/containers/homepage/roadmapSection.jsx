@@ -101,6 +101,9 @@ export function RoadmapSection(props) {
             </RowContainer>
             </Bounce>
 
+            <Fade>
+            <BeyondText>By bringing together this community of chefs and foodies, we aim to position ourselves as a launchpad and future marketplace where we can help chefs + brands get integrated into Web3 and launch their projects</BeyondText>
+            </Fade>
         </RoadmapContainer>
     );
   }
