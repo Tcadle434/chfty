@@ -87,23 +87,20 @@ export function RoadmapSection(props) {
 
             <RoadmapComponent
                 phaseNumber='2'
-                mainDescription='Locked Supply Giveaways Weekly'
-                listDetailsOne='5% of the total CHFTY Pizza supply will be locked and distributed back to CHFTY Pizza holders on a weekly cadence'
-                listDetailsTwo='1/1 unique chef experiences will also be included in this process'
+                mainDescription='CHFTY Pizzas Mint'
+                listDetailsOne='The CHFTY Pizzas come hot out of the oven and are ready to be minted to the public'
+                listDetailsTwo='Each NFT will vary in utility, including digital and physical experiences with Tom and Spike'
             />
 
             <RoadmapComponent
                 phaseNumber='3'
-                mainDescription='CHFTY Exclusive Events and Experiences'
-                listDetailsOne='Meetups, events, and physical experiences for verified CHFTY Pizza holders to interact with our CHFTY Allstar roster'
-                listDetailsTwo='Digital classes and virtual Top Chef based competitions'
+                mainDescription='Airdrop of the CHFTY Pass'
+                listDetailsOne='All CHFTY Pizza Hodlers will get airdropped a more generic CHFTY access pass'
+                listDetailsTwo='This pass will give access to future Chef NFT projects as we continue to expand. We reccomend holding on to both of these NFTs...'
             />
             </RowContainer>
             </Bounce>
 
-            <Fade>
-            <BeyondText>And Beyond... The CHFTY brand is continuing to expand and add new top tier chefs to our team. The future utilities are endless and CHFTY Pizza holders have priority access to it all </BeyondText>
-            </Fade>
         </RoadmapContainer>
     );
   }
