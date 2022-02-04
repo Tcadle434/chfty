@@ -122,13 +122,40 @@ const MintContainer = styled.div`
 
 `;
 
+const IncrementButton = styled.button`
+    padding: 12px 12px;
+    border-radius: 5px;
+    background-color: #F93B2D;
+    color: #FFFFFF;
+    font-weight: normal;
+    font-size: 20px;
+    margin: 20px 20px;
+    font-family: ShortStack-Regular;
+    outline: none;
+    border: none;
+    transition: all 220ms ease-in-out;
+    cursor: pointer;
+    &:hover {
+    background-color: #000000;
+    border: none;
+    color: #FFFFFF;
+    }
+`;
+
+const IncrementRow = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`;
+
 export function TopSection(props) {
-  const MAX_SUPPLY = 18;
+  const MAX_SUPPLY = 25;
   const [currentAccount, setCurrentAccount] = useState(null);
   const [supplyMinted, setSupplyMinted] = useState(0);
   const [isSoldOut, setIsSoldOut] = useState(false);
   const [isMinting, setIsMinting] = useState(false);
   const [isActive, setIsActive] = useState(true); // when sale is active, end of a countdown will trigger
+  const [mintCount, setMintCount] = useState(1);
 
 
   const checkWalletIsConnected = async () => {
@@ -179,9 +206,11 @@ export function TopSection(props) {
             const nftContract = new ethers.Contract(contractAddress, abi, signer);
 
             setIsMinting(true);
+            setMintCount(mintCount);
+            console.log("mint count before minting: " + mintCount);
 
             console.log("initialize payment");
-            let nftTxn = await nftContract.mint(1, { value: ethers.utils.parseEther("0.1")});
+            let nftTxn = await nftContract.mint(mintCount, { value: ethers.utils.parseEther((mintCount * 0.1).toString())});
 
             console.log("mining plz wait");
             await nftTxn.wait();
@@ -220,10 +249,11 @@ export function TopSection(props) {
     
                 setSupplyMinted(supplyNum);
                 setIsSoldOut(supplyNum == MAX_SUPPLY);
-                console.log("total supply, refresh state: " + supplyNum);  
-                console.log("is sold out state: " + isSoldOut);
-                console.log("is minting state: " + isMinting);
-                console.log("is active state: " + isActive);
+                console.log("refreshState | total supply: " + supplyNum);  
+                console.log("refreshState | is sold out state: " + isSoldOut);
+                console.log("refreshState | is minting state: " + isMinting);
+                console.log("refreshState | is active state: " + isActive);
+                console.log("refreshState | current mint count: " + mintCount);
     
             } else{
                 console.log("ETH object does not exist");
@@ -261,9 +291,23 @@ export function TopSection(props) {
                 "Sale Not Active"
             )}
       </ConnectButton>
+      
     )
   }
 
+  const incrementCount = () => {
+    if (mintCount < 3) {
+        let count = mintCount + 1;
+        setMintCount(count);
+    }
+  }
+
+  const decrementCount = () => {
+    if (mintCount > 1) {
+        let count = mintCount - 1;
+        setMintCount(count);
+    }
+  }
 
   useEffect(() => {
     checkWalletIsConnected();
@@ -286,6 +330,11 @@ export function TopSection(props) {
 
             <MintContainer>
             {currentAccount ? mintNftButton() : connectWalletButton()}
+            <IncrementRow>
+                <IncrementButton onClick={decrementCount}>-</IncrementButton>
+                <SubTitle>{mintCount}</SubTitle>
+                <IncrementButton onClick={incrementCount}>+</IncrementButton>
+            </IncrementRow>
             </MintContainer>
 
             </BackgroundContainer>
