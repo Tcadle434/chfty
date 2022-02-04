@@ -35,20 +35,6 @@ const TextContainer = styled.div`
     }
 `;
 
-const SubTitle = styled.h2`
-    color: #FFFFFF;
-    font-size: 30px;
-    text-align: center;
-    word-spacing: 120%;
-    font-family: SyneMono-Regular;
-
-    @media screen and (min-width: 480px) and (max-width: 1200px) {
-        font-size: 28px;
-    }
-     @media screen and (max-width: 480px) {
-        font-size: 20px;
-    }
-`;
 
 const Details = styled.h3`
     color: #FFFFFF;

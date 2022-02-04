@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components/macro";
-import Fade from 'react-reveal/Fade';
 import SpikeImg from '../../assets/spike.jpeg';
 import TomImg from '../../assets/tom.jpeg';
 import BlockStopImg from '../../assets/blockstop.jpg';

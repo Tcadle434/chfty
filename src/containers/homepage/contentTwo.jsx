@@ -33,24 +33,6 @@ const ComponentContainer = styled.div`
   }
 `;
 
-const SubTitle = styled.h2`
-    color: #FFFFFF;
-    font-size: 42px;
-    text-align: center;
-    word-spacing: 120%;
-    font-family: Cuciniere-Regular;
-    margin-block-start: 2em;
-    margin-block-end: 3em;
-
-
-    @media screen and (min-width: 480px) and (max-width: 1200px) {
-        font-size: 28px;
-    }
-     @media screen and (max-width: 480px) {
-        font-size: 20px;
-    }
-`;
-
 const Banner = styled.img`
     width: 75%;
 

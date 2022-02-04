@@ -3,14 +3,14 @@ import styled from "styled-components";
 import { Navbar } from "../../components/navbar";
 import Fade from 'react-reveal/Fade';
 import BackgroundImg from '../../assets/background.png';
-import contract from '../../contracts/ChftyTwo.json';
+import contract from '../../contracts/ChftyTest.json';
 import { useEffect, useState } from 'react';
 import { ethers } from 'ethers';
-import { CircularProgress } from '@mui/material';
+import { CircularProgress, Snackbar, Alert } from '@mui/material';
 import Countdown from "react-countdown";
 
 
-const contractAddress = "0xf4e90C9298D552740fDEfb3762c581866ce65281";
+const contractAddress = "0x448c535dA3146C1e65804BaECe4DB508A3357f55";
 const abi = contract.abi;
 
 const TopContainer = styled.div`
@@ -184,6 +184,9 @@ export function TopSection(props) {
   const [isActive, setIsActive] = useState(false); // when sale is active, end of a countdown will trigger
   const [mintCount, setMintCount] = useState(1);
   const [startDate, setStartDate] = useState(new Date(1643997600000));
+  const [alertOpen, setAlertOpen] = useState(false);
+  const [mintMessage, setMintMessage] = useState("");
+  const [severity, setSeverity] = useState(undefined);
 
 
   const checkWalletIsConnected = async () => {
@@ -235,32 +238,40 @@ export function TopSection(props) {
 
             setIsMinting(true);
             setMintCount(mintCount);
-            console.log("mint count before minting: " + mintCount);
 
             console.log("initialize payment");
             let nftTxn = await nftContract.mint(mintCount, { value: ethers.utils.parseEther((mintCount * 0.1).toString())});
 
-            console.log("mining plz wait");
-            await nftTxn.wait();
+            console.log("minting plz wait");
+            let res = await nftTxn.wait();
+
+            if (!res?.err) {
+                setAlertOpen(true);
+                setMintMessage("Congratulations! Mint succeeded!");
+                setSeverity("success");
+              } else {
+                setAlertOpen(true);
+                setMintMessage("Mint failed! Please try again!");
+                setSeverity("error");
+              }
 
             console.log(`Mined, see transaction: https://rinkeby.etherscan.io/tx/${nftTxn.hash}`);
-            console.log("result of transaction: " + nftTxn.value);
 
             let supplyNum = await nftContract.totalSupply();
-
-            console.log("current minted supply: " + supplyNum);
-
             setSupplyMinted(Number(supplyNum));
             setIsSoldOut(supplyNum == MAX_SUPPLY);
-            setIsMinting(false);
-
-            console.log("sold out status: " + isSoldOut);
 
         } else{
             console.log("ETH object does not exist");
         }
         } catch(err) {
             console.log(err);
+            setAlertOpen(true);
+            setMintMessage("error: " + err.error.message);
+            setSeverity("error");
+
+        } finally{
+            setIsMinting(false);
         }
     }
 
@@ -379,10 +390,22 @@ export function TopSection(props) {
                 </IncrementRow>
             </MintContainer>
 
+            <Snackbar
+            open={alertOpen}
+            autoHideDuration={6000}
+            onClose={() => setAlertOpen(false)}
+            >
+                <Alert
+                onClose={() => setAlertOpen(false)}
+                severity={severity}
+                >
+                    {mintMessage}
+                </Alert>
+            </Snackbar>
+
             </BackgroundContainer>
         </TopContainer>
     );
-
   }
 
 

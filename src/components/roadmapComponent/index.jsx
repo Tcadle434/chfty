@@ -1,7 +1,5 @@
 import React from "react";
 import styled from "styled-components/macro";
-import Bounce from 'react-reveal/Bounce';
-
 
 const RoadContainer = styled.div`
     display: flex;
