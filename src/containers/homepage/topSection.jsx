@@ -7,6 +7,7 @@ import contract from '../../contracts/ChftyTwo.json';
 import { useEffect, useState } from 'react';
 import { ethers } from 'ethers';
 import { CircularProgress } from '@mui/material';
+import Countdown from "react-countdown";
 
 
 const contractAddress = "0xf4e90C9298D552740fDEfb3762c581866ce65281";
@@ -36,7 +37,7 @@ const BackgroundContainer = styled.div`
 `;
 
 const ContainerContent = styled.div`
-    margin-block-start: 10em;
+    margin-block-start: 2em;
     margin-block-end: 2em;
 
     @media screen and (max-width: 480px) {
@@ -62,7 +63,7 @@ const TextContainer = styled.div`
 
 const Title = styled.h2`
     color: #F93B2D;
-    font-size: 240px;
+    font-size: 200px;
     font-family: ShortStack-Regular;
     line-height: 100px;
     margin-left: 10%;
@@ -79,7 +80,7 @@ const Title = styled.h2`
 
 const SubTitle = styled.h2`
     color: #FFFFFF;
-    font-size: 28px;
+    font-size: 24px;
     text-align: left;
     font-family: ShortStack-Regular;
     margin-left: 10%;
@@ -89,6 +90,21 @@ const SubTitle = styled.h2`
     }
      @media screen and (max-width: 480px) {
         font-size: 20px;
+    }
+
+`;
+
+const MintInfo = styled.h3`
+    color: #FFFFFF;
+    font-size: 20px;
+    text-align: left;
+    font-family: ShortStack-Regular;
+
+    @media screen and (min-width: 480px) and (max-width: 900px) {
+        font-size: 18px;
+    }
+     @media screen and (max-width: 480px) {
+        font-size: 16px;
     }
 
 `;
@@ -118,7 +134,18 @@ const MintContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-block-start: 5em;
+    margin-block-start: 3.5em;
+
+`;
+
+const DataContainer = styled.div`
+    padding: 5px 20px;
+    margin: 0 15px;
+    display: flex;
+    flex-direction: column;
+    color: #FFFFFF!important;
+    border: 2px solid;
+    border-radius: 10px;
 
 `;
 
@@ -154,8 +181,9 @@ export function TopSection(props) {
   const [supplyMinted, setSupplyMinted] = useState(0);
   const [isSoldOut, setIsSoldOut] = useState(false);
   const [isMinting, setIsMinting] = useState(false);
-  const [isActive, setIsActive] = useState(true); // when sale is active, end of a countdown will trigger
+  const [isActive, setIsActive] = useState(false); // when sale is active, end of a countdown will trigger
   const [mintCount, setMintCount] = useState(1);
+  const [startDate, setStartDate] = useState(new Date(1643997600000));
 
 
   const checkWalletIsConnected = async () => {
@@ -222,7 +250,7 @@ export function TopSection(props) {
 
             console.log("current minted supply: " + supplyNum);
 
-            setSupplyMinted(supplyNum);
+            setSupplyMinted(Number(supplyNum));
             setIsSoldOut(supplyNum == MAX_SUPPLY);
             setIsMinting(false);
 
@@ -247,7 +275,7 @@ export function TopSection(props) {
     
                 let supplyNum = await nftContract.totalSupply();
     
-                setSupplyMinted(supplyNum);
+                setSupplyMinted(Number(supplyNum));
                 setIsSoldOut(supplyNum == MAX_SUPPLY);
                 console.log("refreshState | total supply: " + supplyNum);  
                 console.log("refreshState | is sold out state: " + isSoldOut);
@@ -288,10 +316,14 @@ export function TopSection(props) {
                 "MINT"
               )
             ) : (
-                "Sale Not Active"
+                <Countdown
+                date={startDate}
+                onMount={({ completed }) => completed && setIsActive(true)}
+                onComplete={() => setIsActive(true)}
+                renderer={renderCounter}
+              />
             )}
       </ConnectButton>
-      
     )
   }
 
@@ -329,15 +361,35 @@ export function TopSection(props) {
             </Fade>
 
             <MintContainer>
-            {currentAccount ? mintNftButton() : connectWalletButton()}
-            <IncrementRow>
-                <IncrementButton onClick={decrementCount}>-</IncrementButton>
-                <SubTitle>{mintCount}</SubTitle>
-                <IncrementButton onClick={incrementCount}>+</IncrementButton>
-            </IncrementRow>
+                <IncrementRow>
+                    <DataContainer>
+                    <MintInfo>Delivered: <br/>{supplyMinted} / 25</MintInfo>
+                    </DataContainer>
+                <DataContainer>
+                    <MintInfo>Price: <br/>0.1 ETH</MintInfo>
+                </DataContainer>
+                </IncrementRow>
+
+                {currentAccount ? mintNftButton() : connectWalletButton()}
+
+                <IncrementRow>
+                    <IncrementButton onClick={decrementCount}>-</IncrementButton>
+                    <SubTitle>{mintCount}</SubTitle>
+                    <IncrementButton onClick={incrementCount}>+</IncrementButton>
+                </IncrementRow>
             </MintContainer>
 
             </BackgroundContainer>
         </TopContainer>
     );
+
   }
+
+
+  const renderCounter = ({days, hours, minutes, seconds, completed }) => {
+    return (
+      <MintInfo>
+        {hours + (days || 0) * 24} hours, {minutes} minutes, {seconds} seconds
+      </MintInfo>
+    );
+  };
