@@ -20,7 +20,7 @@ const ComponentContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 60%;
-  margin-block-start: 3em;
+  margin-block-start: 0em;
   margin-block-end: 1.2em;
   @media screen and (min-width: 480px) and (max-width: 1420px) {
     width: 80%;
