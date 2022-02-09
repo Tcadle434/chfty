@@ -54,11 +54,11 @@ const Title = styled.h2`
 
 const BeyondText = styled.h3`
     color: #FFFFFF;
-    font-size: 32px;
+    font-size: 30px;
     text-align: center;
     font-family: ZenKurenaido-Regular;
     margin-block-start: 3em;
-    width: 60%;
+    width: 65%;
     margin: auto;
 
 
