@@ -92,13 +92,13 @@ export function RoadmapSection(props) {
                 pizzaNumber={PizzaTwo}
                 mainDescription='CHFTY Pizzas Mint'
                 listDetailsOne='The CHFTY Pizzas come hot out of the oven and are ready to be minted to the public'
-                listDetailsTwo='Each NFT will vary in utility, including digital and physical experiences with Tom and Spike'
+                listDetailsTwo='Each CHFTY Pizza NFT contains utility tied to digital and physical experiences with Tom and Spike'
             />
 
             <RoadmapComponent
                 pizzaNumber={PizzaThree}
-                mainDescription='Airdrop of the CHFTY Pass'
-                listDetailsOne='All CHFTY Pizza Hodlers will get airdropped a more generic CHFTY access pass'
+                mainDescription='Drop of the CHFTY Pass'
+                listDetailsOne='All CHFTY Pizza Hodlers will be elligible to claim a free CHFTY Pass'
                 listDetailsTwo='This pass will give access to future Chef NFT projects as we continue to expand. We reccomend holding on to both of these NFTs...'
             />
             </RowContainer>
