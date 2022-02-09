@@ -98,14 +98,14 @@ export function RoadmapSection(props) {
             <RoadmapComponent
                 pizzaNumber={PizzaThree}
                 mainDescription='Drop of the CHFTY Pass'
-                listDetailsOne='All CHFTY Pizza Hodlers will be elligible to claim a free CHFTY Pass'
-                listDetailsTwo='This pass will give access to future Chef NFT projects as we continue to expand. We reccomend holding on to both of these NFTs...'
+                listDetailsOne='All CHFTY Pizza Hodlers will be elligible to claim a FREE CHFTY Pass'
+                listDetailsTwo='New utility incoming...'
             />
             </RowContainer>
             </Bounce>
 
             <Fade>
-            <BeyondText>By bringing together this community of chefs and foodies, we aim to position ourselves as a launchpad and future marketplace where we can help chefs + brands get integrated into Web3 and launch their own projects... And CHFTY Pass holders get access to it all</BeyondText>
+            <BeyondText>By bringing together this food loving community, we aim to position ourselves as an ecosystem where we can help chefs, brands and foodies integrate into Web3 and launch their own projects... And CHFTY Pass holders get access to it all</BeyondText>
             </Fade>
         </RoadmapContainer>
     );
