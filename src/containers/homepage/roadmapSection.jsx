@@ -4,6 +4,9 @@ import { RoadmapComponent } from "../../components/roadmapComponent";
 import Bounce from 'react-reveal/Bounce';
 import LightSpeed from 'react-reveal/LightSpeed';
 import Fade from 'react-reveal/Fade';
+import PizzaOne from '../../assets/Pizzas_1.png'
+import PizzaTwo from '../../assets/Pizzas2.png'
+import PizzaThree from '../../assets/Pizzas3.png'
 
 const RoadmapContainer = styled.div`
   width: 100%;
@@ -79,21 +82,21 @@ export function RoadmapSection(props) {
             <Bounce bottom>
             <RowContainer>
             <RoadmapComponent
-                phaseNumber='1'
+                pizzaNumber={PizzaOne}
                 mainDescription='Build the Greatest Chef and Foodie NFT Community'
                 listDetailsOne='Exclusive access to a community of verified CHFTY Pizza holders'
                 listDetailsTwo='Introduce professional chefs to Web 3 by welcoming them to the CHFTY roster'
             />
 
             <RoadmapComponent
-                phaseNumber='2'
+                pizzaNumber={PizzaTwo}
                 mainDescription='CHFTY Pizzas Mint'
                 listDetailsOne='The CHFTY Pizzas come hot out of the oven and are ready to be minted to the public'
                 listDetailsTwo='Each NFT will vary in utility, including digital and physical experiences with Tom and Spike'
             />
 
             <RoadmapComponent
-                phaseNumber='3'
+                pizzaNumber={PizzaThree}
                 mainDescription='Airdrop of the CHFTY Pass'
                 listDetailsOne='All CHFTY Pizza Hodlers will get airdropped a more generic CHFTY access pass'
                 listDetailsTwo='This pass will give access to future Chef NFT projects as we continue to expand. We reccomend holding on to both of these NFTs...'
