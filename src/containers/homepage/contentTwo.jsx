@@ -75,7 +75,6 @@ export function ContentTwo(props) {
             </Fade>
         </ComponentContainer>
 
-        <Banner src={TomSpikeImg} />
         </ContentContainer>
     );
   }

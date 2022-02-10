@@ -11,7 +11,7 @@ const RoadContainer = styled.div`
     margin-block-start: 2em;
     width: 28%;
     margin: auto;
-    height: 850px;
+    height: 800px;
 
     @media screen and (max-width: 1100px) {
         width: 90%;

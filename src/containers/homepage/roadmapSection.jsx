@@ -40,7 +40,7 @@ const Title = styled.h2`
     font-size: 88px;
     text-align: left;
     font-family: ShortStack-Regular;
-    margin-block-start: 2em;
+    margin-block-start: 1em;
     margin-block-end: 2em;
 
 

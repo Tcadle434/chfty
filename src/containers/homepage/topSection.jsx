@@ -135,7 +135,7 @@ export function TopSection(props) {
             <ContainerContent>
                 <TextContainer>
                 <Title>CHFTY</Title>
-                <SubTitle>Bridging the gap between the Food & Beverage community and the Metaverse</SubTitle>
+                <SubTitle>Bridging the gap between the Food & Beverage community and Web3</SubTitle>
                 </TextContainer>
             </ContainerContent>
             </Fade>

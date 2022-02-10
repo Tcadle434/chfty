@@ -4,8 +4,8 @@ import Fade from 'react-reveal/Fade';
 import Flip from 'react-reveal/Flip';
 import PizzaOutline from '../../assets/pizza-outline.png';
 import PizzaOne from '../../assets/pizzaone.jpeg';
-import PizzaTwo from '../../assets/pizzatwo.jpeg';
-import PizzaThree from '../../assets/pizzathree.jpeg';
+import PizzaTwo from '../../assets/NickyPizza.jpg';
+import PizzaThree from '../../assets/PizzaDelivery.jpg';
 
 
 const ContentContainer = styled.div`
