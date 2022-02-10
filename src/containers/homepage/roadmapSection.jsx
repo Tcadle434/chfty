@@ -105,7 +105,7 @@ export function RoadmapSection(props) {
             </Bounce>
 
             <Fade>
-            <BeyondText>By bringing together this food loving community, we aim to position ourselves as an ecosystem where we can help chefs, brands and foodies integrate into Web3 and launch their own projects... And CHFTY Pass holders get access to it all</BeyondText>
+            <BeyondText>In 2020, the restaurant community had to adapt and evolve in major ways. In order to reimagine how this space could survive and flourish, a new community of forward-thinkers had to be formed. Enter CHFTY. CHFTY will position itself as an ecosystem to help chefs, foodies, and brands integrate into Web3… and CHFTY Pass holders get premier access to it all!</BeyondText>
             </Fade>
         </RoadmapContainer>
     );
