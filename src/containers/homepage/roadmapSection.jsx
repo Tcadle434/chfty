@@ -26,7 +26,7 @@ margin-block-end: 1em;
 width: 80%;
 margin: auto;
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1150px) {
 margin-block-start: 1em;
 margin-block-end: 1em;
 display: inline-block;
@@ -92,7 +92,7 @@ export function RoadmapSection(props) {
                 pizzaNumber={PizzaTwo}
                 mainDescription='CHFTY Pizzas Mint'
                 listDetailsOne='The CHFTY Pizzas come hot out of the oven and are ready to be minted to the public'
-                listDetailsTwo='Each CHFTY Pizza NFT contains utility tied to digital and physical experiences with Tom and Spike'
+                listDetailsTwo='Each CHFTY Pizza NFT contains utility for virtual events, masterclasses, custom kitchen accessories + apparel, and in person events/pop-ups'
             />
 
             <RoadmapComponent
