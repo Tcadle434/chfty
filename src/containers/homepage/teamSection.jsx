@@ -22,14 +22,14 @@ color: #FFFFFF;
 font-size: 88px;
 text-align: center;
 font-family: ShortStack-Regular;
-margin-block-start: 2.5em;
+margin-block-start: 1.5em;
 margin-block-end: 1em;
 
 
  @media screen and (max-width: 480px) {
-    margin-block-start: 6em;
+    margin-block-start: 3em;
     font-size: 38px;
-    margin-block-end: 3em;
+    margin-block-end: 1em;
 
 }
 `;

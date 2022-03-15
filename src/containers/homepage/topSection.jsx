@@ -19,7 +19,7 @@ const TopContainer = styled.div`
 const BackgroundContainer = styled.div`
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.68);
+    background: rgba(0, 0, 0, 0.6);
     
     @media screen and (max-width: 480px) {
         max-width: 100%;

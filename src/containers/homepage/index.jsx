@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { TopSection } from "./topSection";
 import { ContentOne } from "./contentOne";
-import { ContentTwo } from "./contentTwo";
+import { ContentTwo, ContentFlyer } from "./contentTwo";
 import { RoadmapSection } from "./roadmapSection";
 import { TeamSection } from "./teamSection";
 import { FooterSection } from "./footerSection";
@@ -21,6 +21,7 @@ export function Homepage(props) {
         <ContentOne />
         <ContentTwo />
         <RoadmapSection />
+        <ContentFlyer />
         <TeamSection />
         <FooterSection />
       </PageContainer>

@@ -70,6 +70,9 @@ export function FooterSection(props) {
         <a href = "https://discord.gg/EZJFp8DkUK">
             <FooterText> Discord </FooterText>
         </a>
+        <a href = "https://raritysniper.com/nft-drops-calendar?saleDate=2022-03-24">
+            <FooterText> Rarity Sniper </FooterText>
+        </a>
       </AccessibilityContainer>
       </FooterContainer>
   

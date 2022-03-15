@@ -4,9 +4,11 @@ import { RoadmapComponent } from "../../components/roadmapComponent";
 import Bounce from 'react-reveal/Bounce';
 import LightSpeed from 'react-reveal/LightSpeed';
 import Fade from 'react-reveal/Fade';
-import PizzaOne from '../../assets/Pizzas_1.png'
-import PizzaTwo from '../../assets/Pizzas2.png'
-import PizzaThree from '../../assets/Pizzas3.png'
+import PizzaOne from '../../assets/Pizzas_1.png';
+import PizzaTwo from '../../assets/Pizzas2.png';
+import PizzaThree from '../../assets/Pizzas3.png';
+import RoadmapImg from '../../assets/crop-roadmap-min.png';
+import EventImg from '../../assets/event.jpg';
 
 const RoadmapContainer = styled.div`
   width: 100%;
@@ -14,6 +16,7 @@ const RoadmapContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: auto;
   @media screen and (max-width: 480px) {
 }
 `;
@@ -38,16 +41,14 @@ width: 100%;
 const Title = styled.h2`
     color: #FFFFFF;
     font-size: 88px;
-    text-align: left;
+    text-align: center;
     font-family: ShortStack-Regular;
-    margin-block-start: 1em;
-    margin-block-end: 2em;
+    margin-block-start: 3em;
 
 
      @media screen and (max-width: 480px) {
-        margin-block-start: 6em;
+        margin-block-start: 2em;
         font-size: 38px;
-        margin-block-end: 3em;
 
     }
 `;
@@ -72,38 +73,27 @@ const BeyondText = styled.h3`
     }
 `;
 
+const RoadmapImage = styled.img`
+    width: 65%;
+    margin: auto;
+    align-items: center;
+    margin-block-end: 4em;
+    margin-block-start: 8em;
+
+    @media screen and (max-width: 900px) {
+        width: 95%;
+        margin-block-start: 6em;
+        margin-block-end: 1em;
+
+    }
+
+`;
+
 export function RoadmapSection(props) {
 
     return(
         <RoadmapContainer>
-            <LightSpeed left>
-            <Title>ROADMAP</Title>
-            </LightSpeed>
-            <Bounce bottom>
-            <RowContainer>
-            <RoadmapComponent
-                pizzaNumber={PizzaOne}
-                mainDescription='Build the Greatest Chef and Foodie NFT Community'
-                listDetailsOne='Exclusive access to a community of verified CHFTY Pizza holders'
-                listDetailsTwo='Introduce professional chefs to Web 3 by welcoming them to the CHFTY roster'
-            />
-
-            <RoadmapComponent
-                pizzaNumber={PizzaTwo}
-                mainDescription='CHFTY Pizzas Mint'
-                listDetailsOne='The CHFTY Pizzas come hot out of the oven and are ready to be minted to the public'
-                listDetailsTwo='Each CHFTY Pizza NFT contains utility for virtual events, masterclasses, custom kitchen accessories + apparel, and in person events/pop-ups'
-            />
-
-            <RoadmapComponent
-                pizzaNumber={PizzaThree}
-                mainDescription='Drop of the CHFTY Pass'
-                listDetailsOne='All CHFTY Pizza Hodlers will be elligible to claim a FREE CHFTY Pass'
-                listDetailsTwo='New utility incoming...'
-            />
-            </RowContainer>
-            </Bounce>
-
+            <RoadmapImage src={RoadmapImg} />
             <Fade>
             <BeyondText>In 2020, the restaurant community had to adapt and evolve in major ways. In order to reimagine how this space could survive and flourish, a new community of forward-thinkers had to be formed. Enter CHFTY. CHFTY will position itself as an ecosystem to help chefs, foodies, and brands integrate into Web3… and CHFTY Pass holders get premier access to it all!</BeyondText>
             </Fade>
