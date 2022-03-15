@@ -3,14 +3,14 @@ import styled from "styled-components";
 import { Navbar } from "../../components/navbar";
 import Fade from 'react-reveal/Fade';
 import BackgroundImg from '../../assets/background.png';
-import contract from '../../contracts/ChftyTest.json';
+import contract from '../../contracts/ChftyOfficialTest.json';
 import { useEffect, useState } from 'react';
 import { ethers } from 'ethers';
 import { CircularProgress, Snackbar, Alert } from '@mui/material';
 import Countdown from "react-countdown";
 
 
-const contractAddress = "0x448c535dA3146C1e65804BaECe4DB508A3357f55";
+const contractAddress = "0x059B582E66855aA5B74de993b9B6dE4cd811D084";
 const abi = contract.abi;
 
 const TopContainer = styled.div`
@@ -339,7 +339,7 @@ export function TopSection(props) {
   }
 
   const incrementCount = () => {
-    if (mintCount < 3) {
+    if (mintCount < 9) {
         let count = mintCount + 1;
         setMintCount(count);
     }
