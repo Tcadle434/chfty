@@ -3,9 +3,9 @@ import styled from "styled-components";
 import Fade from 'react-reveal/Fade';
 import Flip from 'react-reveal/Flip';
 import PizzaOutline from '../../assets/pizza-outline.png';
-import PizzaOne from '../../assets/pizzaone.jpeg';
-import PizzaTwo from '../../assets/pizzatwo.jpeg';
-import PizzaThree from '../../assets/pizzathree.jpeg';
+import PizzaOne from '../../assets/chefpizza.jpg';
+import PizzaTwo from '../../assets/NickyPizza.jpg';
+import PizzaThree from '../../assets/girlpizza2.jpg';
 
 
 const ContentContainer = styled.div`

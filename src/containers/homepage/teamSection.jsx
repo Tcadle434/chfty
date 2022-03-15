@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
-import SpikeImg from '../../assets/spike.jpeg';
+import Fade from 'react-reveal/Fade';
+import SpikeImg from '../../assets/spike.jpg';
 import TomImg from '../../assets/tom.jpeg';
 import BlockStopImg from '../../assets/blockstop.jpg';
 import DoorImg from '../../assets/door.png';
@@ -21,14 +22,14 @@ color: #FFFFFF;
 font-size: 88px;
 text-align: center;
 font-family: ShortStack-Regular;
-margin-block-start: 2.5em;
+margin-block-start: 1.5em;
 margin-block-end: 1em;
 
 
  @media screen and (max-width: 480px) {
-    margin-block-start: 6em;
+    margin-block-start: 3em;
     font-size: 38px;
-    margin-block-end: 3em;
+    margin-block-end: 1em;
 
 }
 `;

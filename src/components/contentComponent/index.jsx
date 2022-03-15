@@ -68,11 +68,11 @@ const Details = styled.p`
 `;
 
 const Img = styled.img`
-  height: 23em;
-  width: 23em;
+  height: 28em;
+  width: 28em;
   @media screen and (max-width: 480px) {
-    height: 15em;
-    width: 15em;
+    height: 18em;
+    width: 18em;
 }
 `;
 
@@ -100,3 +100,26 @@ const { subTitle, title, imageUrl, isReversed } = props;
   );
 
 }
+
+export function ContentComponentTwo(props) {
+  const { subTitle, title, imageUrl, isReversed } = props;
+  
+    return (
+      <RowContainer isReversed={isReversed}>
+      <ServiceContainer >
+            <Title> {title} </Title>
+            <SubTitle>{subTitle}</SubTitle>
+            <DescriptionContainer>
+            <Details>Introducing our first IRL event EXCLUSIVELY for our CHFTY Pizza holders! Join us in Washington, D.C. for the DCCK Capital Food Fight After Party on Thursday, April 7th at Hanks Oyster Bar on The Wharf. Enjoy free food & drinks with Tom Colicchio, Spike Mendelsohn, Kristen Kish, Andrew Zimmern, Maneet Chauhan & more after the Food Fight!</Details>
+            <Details>We will also be GIVING AWAY Four (4) tickets to our NFT holders for the Capital Food Fight at the Anthem on Thursday, April 7th. 100% of the proceeds will be going to DCCK.</Details>
+          </DescriptionContainer>
+      </ServiceContainer>
+      <ServiceContainer>
+      <Img src ={imageUrl} />
+      </ServiceContainer>
+      </RowContainer>
+    );
+  
+  }
+ 
+

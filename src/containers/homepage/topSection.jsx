@@ -27,7 +27,7 @@ const TopContainer = styled.div`
 const BackgroundContainer = styled.div`
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.68);
+    background: rgba(0, 0, 0, 0.6);
     
     @media screen and (max-width: 480px) {
         max-width: 100%;
@@ -366,7 +366,7 @@ export function TopSection(props) {
             <ContainerContent>
                 <TextContainer>
                 <Title>CHFTY</Title>
-                <SubTitle>Bridging the gap between the Food & Beverage community and the Metaverse</SubTitle>
+                <SubTitle>Bridging the gap between the Food & Beverage community and Web3</SubTitle>
                 </TextContainer>
             </ContainerContent>
             </Fade>

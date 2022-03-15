@@ -76,14 +76,17 @@ const CustomList = styled.ul`
     color: #FFFFFF;
 `;
 
+const PizzaImg = styled.img`
+    height: 12em;
+`;
 
 export function RoadmapComponent(props) {
-    const {phaseNumber, mainDescription, listDetailsOne, listDetailsTwo} = props;
+    const {pizzaNumber, mainDescription, listDetailsOne, listDetailsTwo} = props;
     
       return (
         <RoadContainer>
             <PhaseTitle>PHASE</PhaseTitle>
-            <PhaseNumber>{phaseNumber}</PhaseNumber>
+            <PizzaImg src={pizzaNumber} />
             <PhaseDescription>{mainDescription}</PhaseDescription>
             <CustomList>
                 <li><PhaseDetails>{listDetailsOne}</PhaseDetails></li>

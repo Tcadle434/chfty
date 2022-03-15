@@ -4,6 +4,11 @@ import { RoadmapComponent } from "../../components/roadmapComponent";
 import Bounce from 'react-reveal/Bounce';
 import LightSpeed from 'react-reveal/LightSpeed';
 import Fade from 'react-reveal/Fade';
+import PizzaOne from '../../assets/Pizzas_1.png';
+import PizzaTwo from '../../assets/Pizzas2.png';
+import PizzaThree from '../../assets/Pizzas3.png';
+import RoadmapImg from '../../assets/crop-roadmap-min.png';
+import EventImg from '../../assets/event.jpg';
 
 const RoadmapContainer = styled.div`
   width: 100%;
@@ -11,6 +16,7 @@ const RoadmapContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: auto;
   @media screen and (max-width: 480px) {
 }
 `;
@@ -23,7 +29,7 @@ margin-block-end: 1em;
 width: 80%;
 margin: auto;
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1150px) {
 margin-block-start: 1em;
 margin-block-end: 1em;
 display: inline-block;
@@ -35,27 +41,25 @@ width: 100%;
 const Title = styled.h2`
     color: #FFFFFF;
     font-size: 88px;
-    text-align: left;
+    text-align: center;
     font-family: ShortStack-Regular;
-    margin-block-start: 2em;
-    margin-block-end: 2em;
+    margin-block-start: 3em;
 
 
      @media screen and (max-width: 480px) {
-        margin-block-start: 6em;
+        margin-block-start: 2em;
         font-size: 38px;
-        margin-block-end: 3em;
 
     }
 `;
 
 const BeyondText = styled.h3`
     color: #FFFFFF;
-    font-size: 32px;
+    font-size: 30px;
     text-align: center;
     font-family: ZenKurenaido-Regular;
     margin-block-start: 3em;
-    width: 60%;
+    width: 65%;
     margin: auto;
 
 
@@ -69,40 +73,29 @@ const BeyondText = styled.h3`
     }
 `;
 
+const RoadmapImage = styled.img`
+    width: 65%;
+    margin: auto;
+    align-items: center;
+    margin-block-end: 4em;
+    margin-block-start: 8em;
+
+    @media screen and (max-width: 900px) {
+        width: 95%;
+        margin-block-start: 6em;
+        margin-block-end: 1em;
+
+    }
+
+`;
+
 export function RoadmapSection(props) {
 
     return(
         <RoadmapContainer>
-            <LightSpeed left>
-            <Title>ROADMAP</Title>
-            </LightSpeed>
-            <Bounce bottom>
-            <RowContainer>
-            <RoadmapComponent
-                phaseNumber='1'
-                mainDescription='Build the Greatest Chef and Foodie NFT Community'
-                listDetailsOne='Exclusive access to a community of verified CHFTY Pizza holders'
-                listDetailsTwo='Introduce professional chefs to Web 3 by welcoming them to the CHFTY roster'
-            />
-
-            <RoadmapComponent
-                phaseNumber='2'
-                mainDescription='CHFTY Pizzas Mint'
-                listDetailsOne='The CHFTY Pizzas come hot out of the oven and are ready to be minted to the public'
-                listDetailsTwo='Each NFT will vary in utility, including digital and physical experiences with Tom and Spike'
-            />
-
-            <RoadmapComponent
-                phaseNumber='3'
-                mainDescription='Airdrop of the CHFTY Pass'
-                listDetailsOne='All CHFTY Pizza Hodlers will get airdropped a more generic CHFTY access pass'
-                listDetailsTwo='This pass will give access to future Chef NFT projects as we continue to expand. We reccomend holding on to both of these NFTs...'
-            />
-            </RowContainer>
-            </Bounce>
-
+            <RoadmapImage src={RoadmapImg} />
             <Fade>
-            <BeyondText>By bringing together this community of chefs and foodies, we aim to position ourselves as a launchpad and future marketplace where we can help chefs + brands get integrated into Web3 and launch their own projects... And CHFTY Pass holders get access to it all</BeyondText>
+            <BeyondText>In 2020, the restaurant community had to adapt and evolve in major ways. In order to reimagine how this space could survive and flourish, a new community of forward-thinkers had to be formed. Enter CHFTY. CHFTY will position itself as an ecosystem to help chefs, foodies, and brands integrate into Web3… and CHFTY Pass holders get premier access to it all!</BeyondText>
             </Fade>
         </RoadmapContainer>
     );
