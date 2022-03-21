@@ -55,12 +55,28 @@ const ButtonWrap = styled.button`
 
 `;
 
+const Title = styled.h2`
+    color: #F93B2D;
+    font-size: 42px;
+    font-family: ShortStack-Regular;
+    margin-left: 10%;
+    margin-block-end: 0.5em;
+
+    @media screen and (min-width: 480px) and (max-width: 900px) {
+        font-size: 32px;
+    }
+     @media screen and (max-width: 480px) {
+        font-size: 26px;
+    }
+
+`;
 
 export function Navbar(props) {
 
   return (
     <NavbarContainer>
     <BrandContainer>
+    <Title>CHFTY</Title>
     </BrandContainer>
     
     <AccessibilityContainer>

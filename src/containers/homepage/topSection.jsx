@@ -3,36 +3,42 @@ import styled from "styled-components";
 import { Navbar } from "../../components/navbar";
 import Fade from 'react-reveal/Fade';
 import BackgroundImg from '../../assets/background.png';
-import contract from '../../contracts/ChftyOfficialTest.json';
+import contract from '../../contracts/Smush.json';
 import { useEffect, useState } from 'react';
 import { ethers } from 'ethers';
 import { CircularProgress, Snackbar, Alert } from '@mui/material';
 import Countdown from "react-countdown";
+import PizzaOne from '../../assets/pizzaOneTop.png';
+import PizzaTwo from '../../assets/PizzaTwoTop.png';
+import { useMediaQuery } from "react-responsive";
 
 
-const contractAddress = "0x059B582E66855aA5B74de993b9B6dE4cd811D084";
+const contractAddress = "0x7292eAb4AB68fbe266848539a7662b89eA4e19C7";
 const abi = contract.abi;
 
 const TopContainer = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-image: url(${BackgroundImg});
   background-size: cover;
   object-fit: cover;
 
   @media screen and (max-width: 480px) {
+    height: 100vh;
+
 }
 `;
 
 const BackgroundContainer = styled.div`
     width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    min-height: 100vh;
+    background: rgba(0, 0, 0, 0.68);
     
     @media screen and (max-width: 480px) {
         max-width: 100%;
         margin-block-end: 5em;
         align-items: center;
+        height: 100vh;
     }
 `;
 
@@ -63,9 +69,8 @@ const TextContainer = styled.div`
 
 const Title = styled.h2`
     color: #F93B2D;
-    font-size: 200px;
+    font-size: 64px;
     font-family: ShortStack-Regular;
-    line-height: 100px;
     margin-left: 10%;
     margin-block-end: 0.5em;
 
@@ -80,7 +85,7 @@ const Title = styled.h2`
 
 const SubTitle = styled.h2`
     color: #FFFFFF;
-    font-size: 24px;
+    font-size: 30px;
     text-align: left;
     font-family: ShortStack-Regular;
     margin-left: 10%;
@@ -94,9 +99,30 @@ const SubTitle = styled.h2`
 
 `;
 
+const MintText = styled.h2`
+    color: #FFFFFF;
+    font-size: 96px;
+    text-align: center;
+    font-family: ShortStack-Regular;
+    margin-block-end: 0em;
+    margin-block-start: 0em;
+
+    @media screen and (min-width: 480px) and (max-width: 900px) {
+        font-size: 42px;
+        margin-block-end: 0.5em;
+        margin-block-start: 0.5em;
+    }
+     @media screen and (max-width: 480px) {
+        font-size: 32px;
+        margin-block-end: 1em;
+        margin-block-start: 1em;
+    }
+
+`;
+
 const MintInfo = styled.h3`
     color: #FFFFFF;
-    font-size: 20px;
+    font-size: 28px;
     text-align: left;
     font-family: ShortStack-Regular;
 
@@ -116,7 +142,7 @@ const ConnectButton = styled.button`
     background-color: #F93B2D;
     color: #FFFFFF;
     font-weight: normal;
-    font-size: 20px;
+    font-size: 24px;
     margin: 20px 20px;
     font-family: ShortStack-Regular;
     outline: none;
@@ -155,7 +181,7 @@ const IncrementButton = styled.button`
     background-color: #F93B2D;
     color: #FFFFFF;
     font-weight: normal;
-    font-size: 20px;
+    font-size: 24px;
     margin: 20px 20px;
     font-family: ShortStack-Regular;
     outline: none;
@@ -173,17 +199,37 @@ const IncrementRow = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
+
+`;
+
+const SampleImg = styled.img`
+    height: 14em;
+    width: 14em;
+    margin: 20px;
+    border-radius: 20px;
+    
+    @media screen and (min-width: 480px) and (max-width: 900px) {
+        height: 10em;
+        width: 10em;    
+    }
+     @media screen and (max-width: 480px) {
+        height: 5em;
+        width: 5em;   
+    }
+
 `;
 
 export function TopSection(props) {
-  const MAX_SUPPLY = 25;
+  const isMobile = useMediaQuery({ query: "(max-width: 480px)" });
+
+  const MAX_SUPPLY = 2777;
   const [currentAccount, setCurrentAccount] = useState(null);
   const [supplyMinted, setSupplyMinted] = useState(0);
   const [isSoldOut, setIsSoldOut] = useState(false);
   const [isMinting, setIsMinting] = useState(false);
   const [isActive, setIsActive] = useState(false); // when sale is active, end of a countdown will trigger
   const [mintCount, setMintCount] = useState(1);
-  const [startDate, setStartDate] = useState(new Date(1643997600000));
+  const [startDate, setStartDate] = useState(new Date(1647751500000));
   const [alertOpen, setAlertOpen] = useState(false);
   const [mintMessage, setMintMessage] = useState("");
   const [severity, setSeverity] = useState(undefined);
@@ -221,6 +267,7 @@ export function TopSection(props) {
         const accounts = await ethereum.request({method: 'eth_requestAccounts'})
         console.log("Found an account! address: ", accounts[0]);
         setCurrentAccount(accounts[0]);
+        refreshState();
     } catch (err) {
         console.log(err);
     }
@@ -240,7 +287,7 @@ export function TopSection(props) {
             setMintCount(mintCount);
 
             console.log("initialize payment");
-            let nftTxn = await nftContract.mint(mintCount, { value: ethers.utils.parseEther((mintCount * 0.1).toString())});
+            let nftTxn = await nftContract.mint(mintCount, { value: ethers.utils.parseEther((mintCount * 0.07).toString())});
 
             console.log("minting plz wait");
             let res = await nftTxn.wait();
@@ -339,7 +386,7 @@ export function TopSection(props) {
   }
 
   const incrementCount = () => {
-    if (mintCount < 9) {
+    if (mintCount < 25) {
         let count = mintCount + 1;
         setMintCount(count);
     }
@@ -365,29 +412,39 @@ export function TopSection(props) {
             <Fade>
             <ContainerContent>
                 <TextContainer>
-                <Title>CHFTY</Title>
-                <SubTitle>Bridging the gap between the Food & Beverage community and Web3</SubTitle>
                 </TextContainer>
             </ContainerContent>
             </Fade>
 
             <MintContainer>
                 <IncrementRow>
-                    <DataContainer>
-                    <MintInfo>Delivered: <br/>{supplyMinted} / 25</MintInfo>
-                    </DataContainer>
-                <DataContainer>
-                    <MintInfo>Price: <br/>0.1 ETH</MintInfo>
-                </DataContainer>
+                <MintText>MINT CHFTY PIZZAS!</MintText>
+                </IncrementRow>
+                <IncrementRow>
+                { !isMobile ? (
+                        <SampleImg src={PizzaOne} />
+                    ): (
+                        <IncrementRow>
+                        </IncrementRow>
+
+                )}
+
+
+                {currentAccount ? <DataContainer> <MintInfo>Delivered: <br/>{supplyMinted} / 2777</MintInfo> </DataContainer>: <MintInfo></MintInfo>}      
+                {currentAccount ? <DataContainer> <MintInfo>Price: <br/>0.07 ETH</MintInfo> </DataContainer>: <MintInfo></MintInfo>}      
+
+                { !isMobile ? (
+                        <SampleImg src={PizzaTwo} />
+                    ): (
+                        <IncrementRow>
+                        </IncrementRow>
+
+                )}
                 </IncrementRow>
 
                 {currentAccount ? mintNftButton() : connectWalletButton()}
+                {currentAccount ? <IncrementRow><IncrementButton onClick={decrementCount}>-</IncrementButton><SubTitle>{mintCount}</SubTitle><IncrementButton onClick={incrementCount}>+</IncrementButton></IncrementRow> : <IncrementRow></IncrementRow>}
 
-                <IncrementRow>
-                    <IncrementButton onClick={decrementCount}>-</IncrementButton>
-                    <SubTitle>{mintCount}</SubTitle>
-                    <IncrementButton onClick={incrementCount}>+</IncrementButton>
-                </IncrementRow>
             </MintContainer>
 
             <Snackbar
