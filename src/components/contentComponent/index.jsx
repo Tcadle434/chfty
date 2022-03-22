@@ -5,7 +5,6 @@ import styled from "styled-components/macro";
 
 const RowContainer = styled.div`
   display: flex;
-  align-items: center;
   margin-block-end: 3em;
   flex-direction: ${({ isReversed }) => isReversed && "row-reverse"};
   @media screen and (max-width: 900px) {
