@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import TwitterImg from "../../assets/twitter.png";
 import DiscordImg from "../../assets/discord.png";
+import EtherscanImg from "../../assets/etherscan.png";
+import OpenSeaImg from "../../assets/OS-transparent.png";
 
 const NavbarContainer = styled.div`
   width: 100%;
@@ -35,7 +37,7 @@ const SocialMediaImg = styled.img`
   @media screen and (max-width: 480px) {
     width: 2m;
     height: 1.75em;
-    margin: 10px;
+    margin: 5px;
 
 }
 `;
@@ -88,6 +90,16 @@ export function Navbar(props) {
       <ButtonWrap>
         <a href = "https://discord.gg/EZJFp8DkUK">
             <SocialMediaImg src={DiscordImg} />
+        </a>
+      </ButtonWrap>
+      <ButtonWrap>
+        <a href = "https://opensea.io/collection/chfty-chftypizzas">
+            <SocialMediaImg src={OpenSeaImg} />
+        </a>
+      </ButtonWrap>
+      <ButtonWrap>
+        <a href = "https://etherscan.io/address/0xA720E16603f81CD82FaAE15AE16F1aCfE88ddF0F">
+            <SocialMediaImg src={EtherscanImg} />
         </a>
       </ButtonWrap>
     </AccessibilityContainer>

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Navbar } from "../../components/navbar";
 import Fade from 'react-reveal/Fade';
 import BackgroundImg from '../../assets/background.png';
-import contract from '../../contracts/Smush.json';
+import contract from '../../contracts/ChftyPizzas.json';
 import { useEffect, useState } from 'react';
 import { ethers } from 'ethers';
 import { CircularProgress, Snackbar, Alert } from '@mui/material';
@@ -13,7 +13,7 @@ import PizzaTwo from '../../assets/PizzaTwoTop.png';
 import { useMediaQuery } from "react-responsive";
 
 
-const contractAddress = "0x7292eAb4AB68fbe266848539a7662b89eA4e19C7";
+const contractAddress = "0xA720E16603f81CD82FaAE15AE16F1aCfE88ddF0F";
 const abi = contract.abi;
 
 const TopContainer = styled.div`
@@ -229,7 +229,7 @@ export function TopSection(props) {
   const [isMinting, setIsMinting] = useState(false);
   const [isActive, setIsActive] = useState(false); // when sale is active, end of a countdown will trigger
   const [mintCount, setMintCount] = useState(1);
-  const [startDate, setStartDate] = useState(new Date(1647751500000));
+  const [startDate, setStartDate] = useState(new Date(1648058400000));
   const [alertOpen, setAlertOpen] = useState(false);
   const [mintMessage, setMintMessage] = useState("");
   const [severity, setSeverity] = useState(undefined);
@@ -287,7 +287,7 @@ export function TopSection(props) {
             setMintCount(mintCount);
 
             console.log("initialize payment");
-            let nftTxn = await nftContract.mint(mintCount, { value: ethers.utils.parseEther((mintCount * 0.07).toString())});
+            let nftTxn = await nftContract.mintPresale(mintCount, { value: ethers.utils.parseEther((mintCount * 0.07).toString())});
 
             console.log("minting plz wait");
             let res = await nftTxn.wait();
@@ -386,7 +386,7 @@ export function TopSection(props) {
   }
 
   const incrementCount = () => {
-    if (mintCount < 25) {
+    if (mintCount < 2) {
         let count = mintCount + 1;
         setMintCount(count);
     }
