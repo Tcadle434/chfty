@@ -229,7 +229,7 @@ export function TopSection(props) {
   const [isMinting, setIsMinting] = useState(false);
   const [isActive, setIsActive] = useState(false); // when sale is active, end of a countdown will trigger
   const [mintCount, setMintCount] = useState(1);
-  const [startDate, setStartDate] = useState(new Date(1648058400000));
+  const [startDate, setStartDate] = useState(new Date(1648148400000));
   const [alertOpen, setAlertOpen] = useState(false);
   const [mintMessage, setMintMessage] = useState("");
   const [severity, setSeverity] = useState(undefined);
@@ -287,7 +287,7 @@ export function TopSection(props) {
             setMintCount(mintCount);
 
             console.log("initialize payment");
-            let nftTxn = await nftContract.mintPresale(mintCount, { value: ethers.utils.parseEther((mintCount * 0.07).toString())});
+            let nftTxn = await nftContract.mint(mintCount, { value: ethers.utils.parseEther((mintCount * 0.07).toString())});
 
             console.log("minting plz wait");
             let res = await nftTxn.wait();
@@ -386,7 +386,7 @@ export function TopSection(props) {
   }
 
   const incrementCount = () => {
-    if (mintCount < 2) {
+    if (mintCount < 25) {
         let count = mintCount + 1;
         setMintCount(count);
     }
