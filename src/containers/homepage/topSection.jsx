@@ -385,6 +385,7 @@ export function TopSection(props) {
     )
   }
 
+
   const incrementCount = () => {
     if (mintCount < 25) {
         let count = mintCount + 1;
@@ -418,7 +419,7 @@ export function TopSection(props) {
 
             <MintContainer>
                 <IncrementRow>
-                <MintText>MINT CHFTY PIZZAS!</MintText>
+                <MintText>SOLD OUT!</MintText>
                 </IncrementRow>
                 <IncrementRow>
                 { !isMobile ? (
@@ -442,9 +443,10 @@ export function TopSection(props) {
                 )}
                 </IncrementRow>
 
-                {currentAccount ? mintNftButton() : connectWalletButton()}
-                {currentAccount ? <IncrementRow><IncrementButton onClick={decrementCount}>-</IncrementButton><SubTitle>{mintCount}</SubTitle><IncrementButton onClick={incrementCount}>+</IncrementButton></IncrementRow> : <IncrementRow></IncrementRow>}
-
+                <a href = "https://opensea.io/collection/chfty-chftypizzas">
+                <ConnectButton>Buy on OpenSea</ConnectButton>
+                </a>
+                
             </MintContainer>
 
             <Snackbar
