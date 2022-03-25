@@ -431,9 +431,6 @@ export function TopSection(props) {
                 )}
 
 
-                {currentAccount ? <DataContainer> <MintInfo>Delivered: <br/>{supplyMinted} / 2777</MintInfo> </DataContainer>: <MintInfo></MintInfo>}      
-                {currentAccount ? <DataContainer> <MintInfo>Price: <br/>0.07 ETH</MintInfo> </DataContainer>: <MintInfo></MintInfo>}      
-
                 { !isMobile ? (
                         <SampleImg src={PizzaTwo} />
                     ): (
@@ -446,7 +443,7 @@ export function TopSection(props) {
                 <a href = "https://opensea.io/collection/chfty-chftypizzas">
                 <ConnectButton>Buy on OpenSea</ConnectButton>
                 </a>
-                
+
             </MintContainer>
 
             <Snackbar
